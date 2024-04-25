@@ -1,4 +1,4 @@
-package com.art.myapplication_api.Adapter
+package com.art.myapplication_api.Activity
 
 import android.content.Context
 import android.content.Intent
@@ -8,16 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.art.myapplication_api.Activity.SeriesName
-import com.art.myapplication_api.DataClasses.TypeMatches
 import com.art.myapplication_api.R
 
-class FirstAdapter(
-    var context: Context,
-    var data: ArrayList<TypeMatches>
-
-) :
-    RecyclerView.Adapter<FirstAdapter.Myclass>() {
+class StatusAdapter (var context: Context, var data: ArrayList<String>) :
+    RecyclerView.Adapter<StatusAdapter.Myclass>() {
     class Myclass(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var txt: TextView
 
@@ -28,7 +22,7 @@ class FirstAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Myclass {
 
-        var view = LayoutInflater.from(context).inflate(R.layout.first_layout,parent,false)
+        var view = LayoutInflater.from(context).inflate(R.layout.first_layout, parent, false)
 
         return Myclass(view)
     }
@@ -37,15 +31,11 @@ class FirstAdapter(
 
     override fun onBindViewHolder(holder: Myclass, position: Int) {
 
-        holder.txt.setText(data[position].matchType)
+        holder.txt.setText(data[position])
         Log.d("---===tesssst", "onBindViewHolder: ${data[position]}")
         holder.txt.setOnClickListener {
-
-                context.startActivity(
-                    Intent(context, SeriesName::class.java).putExtra(
-                        "matchtype", data[position].seriesMatches
-                    )
-                )
+//            var intent = Intent(context, Status::class.java).putExtra("seriesname", data[position]).putExtra("matchtype",matchtype)
+//            context.startActivity(intent)
 
         }
 

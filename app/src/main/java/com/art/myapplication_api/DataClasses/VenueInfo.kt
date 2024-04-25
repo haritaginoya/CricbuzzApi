@@ -1,6 +1,7 @@
 package com.art.myapplication_api.DataClasses
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class VenueInfo (
@@ -12,4 +13,4 @@ data class VenueInfo (
   @SerializedName("latitude"  ) var latitude  : String? = null,
   @SerializedName("longitude" ) var longitude : String? = null
 
-)
+): Serializable

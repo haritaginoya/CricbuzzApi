@@ -1,6 +1,7 @@
 package com.art.myapplication_api.DataClasses
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class MatchInfo (
@@ -23,4 +24,4 @@ data class MatchInfo (
   @SerializedName("stateTitle"       ) var stateTitle       : String?    = null,
   @SerializedName("isFantasyEnabled" ) var isFantasyEnabled : Boolean?   = null
 
-)
+) : Serializable

@@ -19,8 +19,9 @@ class MainActivity : AppCompatActivity() {
         try {
              Datareturn(this).getdata(){ss ->
                  Log.e("volley response", "onCreate: ${ss.filters}")
-                 var adapter = FirstAdapter(this@MainActivity,ss.filters!!.matchType,1)
+                 var adapter = FirstAdapter(this@MainActivity,ss.typeMatches)
                  recycle.adapter = adapter
+
 
              }
 

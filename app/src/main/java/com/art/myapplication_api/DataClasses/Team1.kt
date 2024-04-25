@@ -1,6 +1,7 @@
 package com.art.myapplication_api.DataClasses
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class Team1 (
@@ -10,4 +11,4 @@ data class Team1 (
   @SerializedName("teamSName" ) var teamSName : String? = null,
   @SerializedName("imageId"   ) var imageId   : Int?    = null
 
-)
+): Serializable

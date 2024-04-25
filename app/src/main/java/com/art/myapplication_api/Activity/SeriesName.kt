@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.art.myapplication_api.Adapter.FirstAdapter
+import com.art.myapplication_api.DataClasses.SeriesMatches
 import com.art.myapplication_api.R
 
 class SeriesName : AppCompatActivity() {
@@ -14,30 +14,36 @@ class SeriesName : AppCompatActivity() {
         setContentView(R.layout.activity_series_name)
         recycle2 = findViewById(R.id.recycle2)
 
+        Log.d(
+            "========",
+            "onCreate:  ===>  ${intent.getParcelableArrayListExtra<SeriesMatches>("matchtype")}"
+        )
 
-        var seriesname = intent.getStringExtra("seriesname")
+//        var matchtype = intent.getSerializableExtra("matchtype") as ArrayList<SeriesMatches>
 
-        var serieslist = ArrayList<String>()
-        Datareturn(this).getdata { data ->
+//        Log.d("========", "onCreate: $matchtype")
+//        var serieslist = ArrayList<String>()
 
-            for (i in 0 until data.typeMatches.size) {
-                if (data.typeMatches[i].matchType.equals(seriesname)) {
-                    for (i1 in 0 until data.typeMatches[i].seriesMatches.size) {
-                        if (data.typeMatches[i].seriesMatches[i1].seriesAdWrapper!!.seriesName != null) {
-                            serieslist.add(data.typeMatches[i].seriesMatches[i1].seriesAdWrapper!!.seriesName!!)
-
-                            Log.d(
-                                "---test",
-                                "onCreate: ${data.typeMatches[i].seriesMatches[i1].seriesAdWrapper!!.seriesName}"
-                            )
-                        }
-                    }
-                }
-            }
-            Log.d("--====ff", "series list ==> : ${serieslist}")
-            var adapter = FirstAdapter(this, serieslist, 2)
-            recycle2.adapter = adapter
-        }
+//        Datareturn(this).getdata { data ->
+//
+//            for (i in 0 until data.typeMatches.size) {
+//                if (data.typeMatches[i].matchType.equals(matchtype)) {
+//                    for (i1 in 0 until data.typeMatches[i].seriesMatches.size) {
+//                        if (data.typeMatches[i].seriesMatches[i1].seriesAdWrapper!!.seriesName != null) {
+//                            serieslist.add(data.typeMatches[i].seriesMatches[i1].seriesAdWrapper!!.seriesName!!)
+//
+//                            Log.d(
+//                                "---test",
+//                                "onCreate: ${data.typeMatches[i].seriesMatches[i1].seriesAdWrapper!!.seriesName}"
+//                            )
+//                        }
+//                    }
+//                }
+//            }
+//            Log.d("--====ff", "series list ==> : ${serieslist}")
+//            var adapter = SecondAdapter(this, serieslist,matchtype)
+//            recycle2.adapter = adapter
+//        }
 
 
     }
