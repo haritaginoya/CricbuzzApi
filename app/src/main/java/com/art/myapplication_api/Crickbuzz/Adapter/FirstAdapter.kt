@@ -1,4 +1,4 @@
-package com.art.myapplication_api.Adapter
+package com.art.myapplication_api.Crickbuzz.Adapter
 
 import android.content.Context
 import android.content.Intent
@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.art.myapplication_api.Activity.SeriesName
-import com.art.myapplication_api.DataClasses.TypeMatches
+import com.art.myapplication_api.Crickbuzz.Activity.SeriesName
+import com.art.myapplication_api.Crickbuzz.DataClasses.TypeMatches
 import com.art.myapplication_api.R
 
 class FirstAdapter(
@@ -37,8 +37,17 @@ class FirstAdapter(
 
     override fun onBindViewHolder(holder: Myclass, position: Int) {
 
-        holder.txt.setText(data[position].matchType)
-        Log.d("---===tesssst", "onBindViewHolder: ${data[position]}")
+        if(holder.txt.text != null)
+        {
+            holder.txt.setText(data[position].matchType)
+
+        }
+        else
+        {
+            holder.txt.visibility = View.GONE
+        }
+
+        Log.d("---===matchType", "matchType ==>: ${data[position].matchType}")
         holder.txt.setOnClickListener {
 
                 context.startActivity(

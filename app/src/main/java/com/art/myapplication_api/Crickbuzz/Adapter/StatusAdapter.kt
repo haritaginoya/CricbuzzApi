@@ -1,16 +1,16 @@
-package com.art.myapplication_api.Activity
+package com.art.myapplication_api.Crickbuzz.Adapter
 
 import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.art.myapplication_api.Crickbuzz.DataClasses.Matches
 import com.art.myapplication_api.R
 
-class StatusAdapter (var context: Context, var data: ArrayList<String>) :
+class StatusAdapter(var context: Context, var matches: ArrayList<Matches>) :
     RecyclerView.Adapter<StatusAdapter.Myclass>() {
     class Myclass(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var txt: TextView
@@ -27,15 +27,13 @@ class StatusAdapter (var context: Context, var data: ArrayList<String>) :
         return Myclass(view)
     }
 
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount(): Int = matches.size
 
     override fun onBindViewHolder(holder: Myclass, position: Int) {
 
-        holder.txt.setText(data[position])
-        Log.d("---===tesssst", "onBindViewHolder: ${data[position]}")
+        holder.txt.setText(matches[position].matchInfo!!.status)
+        Log.d("---===status", "status ==>: ${matches[position].matchInfo!!.status}")
         holder.txt.setOnClickListener {
-//            var intent = Intent(context, Status::class.java).putExtra("seriesname", data[position]).putExtra("matchtype",matchtype)
-//            context.startActivity(intent)
 
         }
 

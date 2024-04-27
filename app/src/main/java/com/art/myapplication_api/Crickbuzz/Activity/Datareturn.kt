@@ -1,10 +1,10 @@
-package com.art.myapplication_api.Activity
+package com.art.myapplication_api.Crickbuzz.Activity
 
 import android.content.Context
 import android.util.Log
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.art.myapplication_api.DataClasses.MyData
+import com.art.myapplication_api.Crickbuzz.DataClasses.MyData
 import com.google.gson.Gson
 
 class Datareturn(var context : Context) {

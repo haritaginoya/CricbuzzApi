@@ -1,10 +1,10 @@
-package com.art.myapplication_api.Activity
+package com.art.myapplication_api.Crickbuzz.Activity
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.art.myapplication_api.Adapter.FirstAdapter
+import com.art.myapplication_api.Crickbuzz.Adapter.FirstAdapter
 import com.art.myapplication_api.R
 
 
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         var recycle : RecyclerView = findViewById(R.id.recycle)
         try {
-             Datareturn(this).getdata(){ss ->
+             com.art.myapplication_api.Crickbuzz.Activity.Datareturn(this).getdata(){ ss ->
                  Log.e("volley response", "onCreate: ${ss.filters}")
                  var adapter = FirstAdapter(this@MainActivity,ss.typeMatches)
                  recycle.adapter = adapter
