@@ -56,12 +56,16 @@ class NewsActivity : AppCompatActivity() {
         autoCompleteTextView.setOnItemClickListener { parent, view, position, id ->
 
             RetrofitInstance().service.response(
-                contry_name!!,
+                contryname_map[contry_name]!!,
                 autoCompleteTextView.text.toString(),
                 "ddec8867f68a4c80b097d86b1a8dd80f"
             ).enqueue(object : Callback<News> {
                 override fun onResponse(call: Call<News>?, response: Response<News>?) {
                     Log.d("=======", "onResponse: ${response!!.body()}")
+
+                    var adapter = MyNewsAdapter(this@NewsActivity,response.body().articles)
+//                    news
+
                 }
 
                 override fun onFailure(call: Call<News>?, t: Throwable?) {
@@ -71,7 +75,7 @@ class NewsActivity : AppCompatActivity() {
 
             })
             Log.d(
-                "--===", "onCreate:  ${autoCompleteTextView.text.toString()}"
+                "--===", "onCreate:  ${autoCompleteTextView.text.toString()}   ${contryname_map[contry_name]}"
             )
 
         }
