@@ -7,37 +7,54 @@ import com.art.myapplication_api.R
 
 class MainActivity : AppCompatActivity() {
     lateinit var recycle: RecyclerView
-    var contryname_map = HashMap<String, String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-        contryname_map["India"] = "in"
-        contryname_map["Canada"] = "ca"
-        contryname_map["America"] = "us"
-        contryname_map["Australia"] = "au"
-        contryname_map["Belgium"] = "be"
-        contryname_map["Brazil"] = "br"
-        contryname_map["China"] = "cn"
-        contryname_map["Cuba"] = "cu"
-        contryname_map["France"] = "fr"
-        contryname_map["Germany"] = "de"
-        contryname_map["Indonesia"] = "id"
-        contryname_map["Italy"] = "it"
-        contryname_map["Japan"] = "jp"
-        contryname_map["Mexico"] = "mx"
-        contryname_map["Britain and Northern Ireland"] = "gb"
-        contryname_map["Ukraine"] = "ua"
-        contryname_map["South Africa"] = "za"
 
+        var array = arrayOf(
+            "India",
+            "Canada",
+            "America",
+            "Australia",
+            "Belgium",
+            "Brazil",
+            "🇨🇳" + "China",
+            "Cuba",
+            "France",
+            "Germany",
+            "Indonesia",
+            "Italy",
+            "Japan",
+            "South Africa",
+            "Ukraine",
+            "Britain and Northern Ireland",
+            "Mexico"
+        )
 
-        var mutableset = arrayOf("India","Canada","America","Australia","Belgium","Brazil","China","Cuba","France"  his)
-
-
+        var flag = arrayOf(
+            "🇮🇳",
+            "🇨🇦",
+            "\uD83C\uDDFA\uD83C\uDDF8",
+            "\uD83C\uDDE6\uD83C\uDDFA",
+            "🇧🇪",
+            "\uD83C\uDDE7\uD83C\uDDF7",
+            "\uD83C\uDDE8\uD83C\uDDFA",
+            "\uD83C\uDDEB\uD83C\uDDF7",
+            "\uD83C\uDDE9\uD83C\uDDEA",
+            "\uD83C\uDDEE\uD83C\uDDE9",
+            "\uD83C\uDDEE\uD83C\uDDF9",
+            "\uD83C\uDDEF\uD83C\uDDF5",
+            "\uD83C\uDDFF\uD83C\uDDE6",
+            "\uD83C\uDDFA\uD83C\uDDE6",
+            "\uD83C\uDDEE\uD83C\uDDEA",
+            "\uD83C\uDDF2\uD83C\uDDFD"
+        )
 
         recycle = findViewById(R.id.recyclead)
 
-        var adapter = NameAdapter(this, mutableset, contryname_map)
+        var adapter = NameAdapter(this, array,flag)
 
         recycle.adapter = adapter
 

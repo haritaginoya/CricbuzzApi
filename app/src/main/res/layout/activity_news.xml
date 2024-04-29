@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".NewsApi.Activity.NewsActivity">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/circle"
+            android:theme="@style/Theme.MaterialComponents.Light.Bridge">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:capitalize="words"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:hint="Select catogory"
+                android:background="@drawable/circle"
+                android:inputType="none"
+                android:textSize="40dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/newsrecycle"/>
+
+</LinearLayout>
